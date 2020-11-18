@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');
+
+
+@media (min-width: 990px) { 
+
+  .title{
+    text-align: right;
+  }
+
+  .poptags{
+    text-align: left;
+  }
+
+}
+
+
+.green{
+  color: #06A77D; 
+}
+
+
+body{
+  background-color: #F9F9F9;
+  font-family: Nunito;
+}
+
+.center-div{
+  text-align: center;
+  
+}
+
+.vl {
+  border-left: 1.5px solid #2B2B2B;
+  height: 18px;
+}
+
+.margin-top{
+  margin-top: 8rem;
+}
+
+.subtext{
+ font-size: 1.6rem;
+}
+
+.message{
+  display: none;
+  color: seagreen;
+}
+
+
+.margint{
+  margin-top: 2rem;
+}
+
+.btn-main{
+  background-color: #06A77D;
+  width: 17rem;
+  height: 3rem;
+  font-weight: bolder;
+  box-shadow: 1px 1px 5px #aaaaaa;
+  border: none;
+}
+
+.btn-1{
+  background-color: #06A77D;
+  box-shadow: 1px 1px 5px #aaaaaa;
+  outline: none;
+  border: none;
+  padding: 10px 15px 10px 15px;
+}
+
+input[type="text"]{
+  width: 32rem;
+  box-shadow: 1px 1px 5px #aaaaaa;
+  border-radius: 36px;
+  border: none;
+  max-width: 90%;
+
+}
+
+.nav-tabs {
+  border-bottom: 0px;
+}
+
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+
+  background-color: #06A77D;
+  border: none;
+  font-weight: 500;
+  color: white;
+  font-size: 1.05rem;
+  padding: 10px 20px 10px 20px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+
+}
+
+.nav-tabs .nav-link {
+  margin-right: 10px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  color: #565656;
+  background-color: #ececec;
+  font-size: 1.05rem;
+  padding: 10px 20px 10px 20px;
+
+}
+
+textarea{
+  border-radius: 10px;
+  border: 1px solid rgba(5, 25, 35, 0.5);
+  resize: none;
+  max-width: 100%;
+
+}
+
+input[type="text"]:focus , textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 2px #0066ff;
+  
+}
+
+
+.description{
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+a{
+  text-decoration: none;
+}
+
+p{
+  color: #2B2B2B;
+}
+
+.blue{
+  color: #005377;
+}
+
+a .blue:hover{
+  color: #2B2B2B;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.poptags{
+  color: #2B2B2B;
+}
+
+.underline{
+  text-decoration-line: underline;
+}
+
+.underline p{
+
+}
+
+
+.fa-search{
+  color: white;
+}
+
+.heading-1{
+  color: #005377;
+  font-weight: 400;
+}
+
+.btn-query{
+  width: auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.subtext-small{
+  font-size: 1.3rem;
+  font-weight: lighter;
+}
+
+.mail{
+  font-weight: 300;
+}
+
+.mail:hover{
+  color: #333;
+}
+
+.nav-icons{
+  color: lightslategray;
+}
+
+.brand-box{
+  background-color: white;
+  width: auto;
+  /* display: inline-block; */
+}
+
+
+.info{
+  font-size: 1.15rem;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.brand-img{
+  max-height: 10rem;
+  border: 1px solid rgb(0,0,0,0.1);
+  padding: 5px;
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+.adjust{
+  padding-top: 2.7rem !important;
+}
+
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 20px 20px;
+  pointer-events: none;
+  color: #333;
+}
+
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+.border-box{
+  border: 1px solid lightgrey;
+}
+
+.modal-header{
+  border:0;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.regular{
+  font-weight: 400;
+}
+
+
+.fanav:hover{
+  color:#333;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #06A77D;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+  
+.modal-content{
+  max-width: 100%;
+}
+
+.modal-body{
+  max-width: 100%;
+}
+
+
+/* Autocomplete */
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 210%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: #06A77D !important; 
+  color: #ffffff; 
+}

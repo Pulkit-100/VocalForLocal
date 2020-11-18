@@ -1,0 +1,37 @@
+<!-- MODAL   -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header pb-0">
+
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times blue" aria-hidden="true"></i></button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body center-div">
+        <h2 class="blue bold highlight">Report an Error</h2>
+        <h6 class="subtext-small regular mb-5 px-5">We will investigate the error as soon as we can. Thanks for improving our platform!</h6>
+      
+        <form method="POST" action="/query" onsubmit="positive()">
+
+          <label class="bold blue subtext-small" for="errormessage">Message</label><br>
+          <textarea class="p-3 mb-4" id="errorMessage" name="message"  rows="5" cols="60" name="errorMessage" required></textarea>
+          <button class="btn btn-dark btn-main mb-4" type="submit" onclick="submit">Report</button>
+        </form>
+        <hr class="mb-4">
+        <h6 class="subtext-small mb-5">Have any Ideas? Questions? Suggestions? <a href="mailto:vocal.at.local@gmail.com" target="_blank" class="blue">Mail us @ vocal.at.local@gmail.com</a></h6>
+        
+      </div>
+      
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  function positive() {
+    alert("Your message has been recieved! Thanks for reporting.");
+  }
+  </script>
