@@ -1,0 +1,77 @@
+ 
+  <main>
+
+    <!-- <div class="container">
+    <p class="mb-4"><span class="blue">Results: </span>{{count}} Alternatives Found</p>          
+    {% for  res in results%}
+              <div class="mb-3 border-box center-div row pt-5 brand-box container mx-2">
+                
+                <div class="col-lg-1 col-xs-0"><h4 class="blue" style="text-align:left;">{{loop.index}})</h4></div>
+
+                <div class="mb-5 col-lg-4 col-xs-12">
+                  <img class="brand-img" src="{{res.Image}}">
+                </div>
+
+                <div class="mb-5 col-lg-6 col-xs-12">
+                  <p class="info"><span class="bold blue">{{res.Brand}} </span>{{res.Wiki}}</p>
+                </div>
+
+                
+              </div>
+              {% endfor %}
+    </div> -->
+    
+    <div class="container mt-5">
+ 
+    
+    <!-- TABS [IDENTIFIED BY UNIQUE IDs] -->
+    <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
+      {% for n in notes%}
+      <li class="nav-item">
+        <a class="nav-link tabs" id="home-tab" data-toggle="tab" href="#{{n.replace(' ','-')}}" role="tab" aria-controls="home" aria-selected="true">{{n}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+   
+   <!-- TAB CONTENTS-->
+    <div class="tab-content mt-1" id="myTabContent">
+      
+       <!-- TAB CONTENT 1 -->
+       {% for key,val in results.items()%}
+      <div class="tab-pane fade" id="{{key.replace(' ','-')}}" role="tabpanel" aria-labelledby="home-tab">
+        <p class="mb-4"><span class="blue">Results: </span>{{val['count']}} Alternatives Found</p>
+        {% for res in val['res'] %}
+        <div class="mb-3 border-box center-div row pt-5 brand-box container mx-2">
+          
+          <div class="col-lg-1 col-xs-0"><h4 class="blue" style="text-align:left;">{{loop.index}})</h4></div>
+
+          <div class="mb-5 col-lg-4 col-xs-12">
+            <img class="brand-img" src="{{res.Image}}" alt="{{res.Brand}}">
+          </div>
+
+          <div class="mb-5 col-lg-6 col-xs-12">
+            <p class="info"><span class="bold blue">{{res.Brand}} </span>{{res.Wiki}}</p>
+            <a href="https://www.google.com/search?tbm=shop&q={{res.Brand}}" target="_blank"><span class="green bold" style="text-align: left; float: left;"><u>Explore Products</u> <i class="fa fa-external-link-square" aria-hidden="true"></i></span></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    
+    </div><!-- TAB CONTENTS END -->
+    
+  </div>
+
+
+    <br>
+    <br>
+
+</main>
+<script>
+var tabs = document.getElementsByClassName("nav-link");
+tabs[0].classList.add("active");
+startlist=tabs[0].getAttribute('href')
+startlist=startlist.replace('#','')
+document.getElementById(startlist).classList.add("active")
+document.getElementById(startlist).classList.add("show")
+</script>

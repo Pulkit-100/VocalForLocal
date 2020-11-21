@@ -1,0 +1,213 @@
+{% include "navbar.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172687843-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172687843-1');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="keywords" content="vocal4local, vocalforlocal, vocal ke liye vocal, #vocal4local, #vocalforlocal, indian alternatives, indian brands, brands">
+  <meta name="description" content="Discover Indian Alternatives to your Favourite Brands!">
+  
+  <meta name="og:type" content="website">
+  <meta name="og:title" content="Vocal4Local">
+  <meta name="og:description" content="Discover Indian Alternatives to your Favourite Brands!">
+  <meta name="og:image" content="{{url_for('static',filename='images/logo.svg')}}">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+
+  <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
+
+
+  <title>Vocal4Local - Discover Indian Alternatives to your Favourite Brands!</title>
+</head>
+<body>
+
+  {% include "modal.html" %}
+  <form autocomplete="off" method="GET" action="/response">
+   <div class="container">
+      <div class="center-div p-0">
+        <div class="autocomplete" style="width:initial;">  
+        <span class="inner-addon left-addon">
+            <!-- <i class="fa fa-search glyphicon adjust" aria-hidden="true"> </i> -->
+          <input style="font-family: Nunito,FontAwesome; max-width: 90%;" id="myInput" name="q" class="mb-3 maininput py-3 mt-4" type="text" placeholder=" &#xF002;   Search by brands or categories" value="{{input}}" required>
+          <button style="display: none;" id="btnSubmit" class="btn btn-dark btn-1 ml-2 margint" onclick="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+          </div>
+      </div>
+
+
+
+  <div class="row px-4 center-div mt-2">
+    <div class="col-12 blue bold mb-2">
+      Popular Categories:
+    </div>
+    <div class="col-12">
+      <u><a href="/response?q=Clothing"  class="poptags mx-2">Clothing</a></u>
+      <span class="vl"></span>
+      <u><a href="/response?q=Footwear" class="poptags mx-2">Footwear</a></u>
+      <span class="vl"></span>
+      <u><a href="/response?q=Handbags" class="poptags mx-2">Handbags</a></u>
+      <span class="vl"></span>
+      <u><a href="/response?q=Skin+Essentials" class="poptags mx-2">Skin Essentials</a></u>
+    </div>
+  </div>
+
+  </div>   
+</form>
+
+
+
+<hr width="80%">
+
+
+    {% if type == 1 %}
+    {% include "result-none.html" %}
+    {% elif type == 2 %}
+    {% include "results-alternative.html" %}
+    {% elif type == 3 %}
+    {% include "result-positive.html" %}
+    {% elif type == 4 %}
+    {% include "results-brand.html" %}
+    {% endif %}
+
+
+    <script>
+      function autocomplete(inp, arr) {
+      /*the autocomplete function takes two arguments,
+      the text field element and an array of possible autocompleted values:*/
+      var currentFocus;
+      /*execute a function when someone writes in the text field:*/
+      inp.addEventListener("input", function(e) {
+          var a, b, i, val = this.value;
+          /*close any already open lists of autocompleted values*/
+          closeAllLists();
+          if (!val) { return false;}
+          currentFocus = -1;
+          /*create a DIV element that will contain the items (values):*/
+          a = document.createElement("DIV");
+          a.setAttribute("id", this.id + "autocomplete-list");
+          a.setAttribute("class", "autocomplete-items");
+          /*append the DIV element as a child of the autocomplete container:*/
+          this.parentNode.appendChild(a);
+          /*for each item in the array...*/
+          for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+              /*create a DIV element for each matching element:*/
+              b = document.createElement("DIV");
+              /*make the matching letters bold:*/
+              b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+              b.innerHTML += arr[i].substr(val.length);
+              /*insert a input field that will hold the current array item's value:*/
+              b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+              /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+                  /*insert the value for the autocomplete text field:*/
+                  inp.value = this.getElementsByTagName("input")[0].value;
+                  /*close the list of autocompleted values,
+                  (or any other open lists of autocompleted values:*/
+                  closeAllLists();
+              });
+              a.appendChild(b);
+            }
+          }
+      });
+      /*execute a function presses a key on the keyboard:*/
+      inp.addEventListener("keydown", function(e) {
+          var x = document.getElementById(this.id + "autocomplete-list");
+          if (x) x = x.getElementsByTagName("div");
+          if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+              /*and simulate a click on the "active" item:*/
+              if (x) x[currentFocus].click();
+            }
+          }
+      });
+      function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+      function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+      function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+          if (elmnt != x[i] && elmnt != inp) {
+            x[i].parentNode.removeChild(x[i]);
+          }
+        }
+      }
+      /*execute a function when someone clicks in the document:*/
+      document.addEventListener("click", function (e) {
+          closeAllLists(e.target);
+      });
+    }
+    
+    var countries = {{arr|tojson}};
+    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+    autocomplete(document.getElementById("myInput"), countries);
+
+    var input = document.getElementById("myInput");
+  input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     document.getElementById("btnSubmit").click();
+    }
+  });
+
+  
+// var btnContainer = document.getElementById("myTabContent");
+// var btns = btnContainer.getElementsByClassName("tab-pane");
+
+// btns[0].classList.add("active");
+// btns[0].classList.add("show");
+
+  
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+
+
+</body>
+</html>
