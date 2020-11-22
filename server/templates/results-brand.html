@@ -1,0 +1,23 @@
+<main>
+
+    <div class="container">
+    <p class="mb-4"><span class="blue">Results: </span>{{count}} Alternatives Found</p>          
+    {% for  res in results%}
+              <div class="mb-3 border-box center-div row pt-5 brand-box container mx-2">
+                
+                <div class="col-lg-1 col-xs-0"><h4 class="blue" style="text-align:left;">{{loop.index}})</h4></div>
+
+                <div class="mb-5 col-lg-4 col-xs-12">
+                  <img class="brand-img" src="{{res.Image}}" alt="{{res.Brand}}">
+                </div>
+
+                <div class="mb-5 col-lg-6 col-xs-12">
+                  <p class="info"><span class="bold blue">{{res.Brand}} </span>{{res.Wiki}}</p>
+                  <a href="https://www.google.com/search?tbm=shop&q={{res.Brand}}" target="_blank"><span class="green bold" style="text-align: left; float: left;"><u>Explore Products</u> <i class="fa fa-external-link-square" aria-hidden="true"></i></span></a>
+                </div>
+
+                
+              </div>
+      {% endfor %}
+    </div>
+</main>

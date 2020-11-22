@@ -1,0 +1,26 @@
+  <main>
+
+    <div class="container center-div">
+
+      <p><span class="blue">Results: </span>0 Alternatives Found</p><br>
+
+          <h2 class="heading-1 mb-3">Oops! Looks like we don't have any alternatives for "{{input}}"</h2>
+          <h6 class="subtext-small mb-5">Worry Not! Tell us the brand name and we'll add it soooon. Help the initiative grow!</h6>
+
+          <button id="query-submit" class="btn btn-dark btn-main btn-query mb-5" onclick="submitterm()">Submit "{{input}}"</button>
+
+          <span id="feedback" class="message pb-5"><h5><i class="fa fa-check-circle" aria-hidden="true"></i> We've recieved your request. Thanks for reporting!</h5></span>
+          <h6 class="subtext-small mb-5">Have any Ideas? Questions? Suggestions? <br> <a href="mailto:vocal.at.local@gmail.com" target="_blank" class="mail blue">Mail us @ vocal.at.local@gmail.com</a></h6>
+      </div>
+
+    </div>
+
+  </main>
+
+  
+  <script>
+    function submitterm() {
+      document.getElementById("query-submit").style.display = "none";
+      document.getElementById("feedback").style.display = "block";
+    }
+  </script>
