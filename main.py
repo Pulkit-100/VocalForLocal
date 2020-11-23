@@ -128,7 +128,10 @@ def query():
 
 @app.route('/test')
 def test():
-    return "Works!"
+    if "MONGO_URI" in os.environ:
+        return "Works!"
+    else:
+        return "Error"
 
 
 if __name__ == "__main__":
