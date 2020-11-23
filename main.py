@@ -126,5 +126,10 @@ def query():
     return render_template('index.html', arr=arr)
 
 
+@app.route('/test')
+def test():
+    return "Works!"
+
+
 if __name__ == "__main__":
     app.run(use_reloader=True, debug=False)
