@@ -66,7 +66,7 @@ def get_all_stars():
         for res in results:
             notes = res.get('Notes')
         notes = notes.split(',')
-        print(notes)
+        # print(notes)
         jsn = {}
         nots = set()
         for note in notes:
