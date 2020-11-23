@@ -14,7 +14,9 @@ app = Flask(__name__)
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsof.icon')
 
-print(os.environ["MONGO_URI"])
+
+if "&w=majority" not in os.environ["MONGO_URI"]:
+    os.environ["MONGO_URI"] += "&w=majority"
 
 mongo_client = MongoClient(os.environ["MONGO_URI"])
 db = mongo_client.db
