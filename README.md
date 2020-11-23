@@ -38,11 +38,11 @@ pip install -r requirements.txt
 2. After installing all the requirements, all you need to do is execute the main.py file:
 
 ```
-python3 app.py
+python3 main.py
 ``` 
 or 
 ```
-python app.py
+python main.py
 ``` 
 [Depending on the system]
 
