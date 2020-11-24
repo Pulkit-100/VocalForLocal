@@ -137,5 +137,10 @@ def test():
         return "Error"
 
 
+@app.route('/pk')
+def pk():
+    return "Hello World"
+
+
 if __name__ == "__main__":
     app.run(use_reloader=True, debug=False)
